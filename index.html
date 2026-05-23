@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Tracker API | Mihir Barve</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 70px 10%;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      background: white;
+      color: #1e3a8a;
+      padding: 12px 22px;
+      border-radius: 8px;
+      margin: 8px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 50px 10%;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #1e3a8a;
+      text-align: center;
+    }
+
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .tech-list,
+    .endpoint-list {
+      max-width: 900px;
+      margin: 25px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background: #e5e7eb;
+      padding: 3px 6px;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Job Tracker API</h1>
+
+    <p>
+      A professional backend Job Application Tracking System built using FastAPI,
+      SQLAlchemy, SQLite, JWT Authentication, and external job API integration.
+    </p>
+
+    <div class="buttons">
+      <a href="https://github.com/mihir182001/Job-Tracker" target="_blank">
+        View GitHub
+      </a>
+
+      <a href="http://127.0.0.1:8000/docs" target="_blank">
+        Swagger Docs
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Project Overview</h2>
+
+    <p class="about">
+      Job Tracker API helps users manage their complete job application process
+      through secure REST APIs. Users can register, login, manage companies,
+      track job applications, schedule interviews, save job preferences,
+      receive real-time job recommendations, save recommended jobs,
+      and view dashboard analytics.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Key Features</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Authentication</h3>
+
+        <p>
+          Secure registration and login using JWT authentication
+          and password hashing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Job Tracking</h3>
+
+        <p>
+          Create, view, update, and delete job applications
+          with status, salary, location, and work model.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Interview Management</h3>
+
+        <p>
+          Schedule and manage interviews with interview type,
+          date, round number, and duration.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Job Recommendations</h3>
+
+        <p>
+          Uses user preferences and an external job API
+          to fetch real-time job recommendations.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Dashboard Analytics</h3>
+
+        <p>
+          Shows total jobs, companies, interviews,
+          preferences, and success rate.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Technologies Used</h2>
+
+    <div class="tech-list">
+      <ul>
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>SQLAlchemy ORM</li>
+        <li>SQLite</li>
+        <li>Pydantic</li>
+        <li>JWT Authentication</li>
+        <li>Requests Library</li>
+        <li>Swagger UI</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Main API Endpoints</h2>
+
+    <div class="endpoint-list">
+      <ul>
+        <li><code>POST /register</code> - Register a new user</li>
+        <li><code>POST /login</code> - Login and receive access token</li>
+        <li><code>POST /companies</code> - Add company</li>
+        <li><code>GET /jobs</code> - Get jobs with pagination and filters</li>
+        <li><code>POST /interviews</code> - Schedule interview</li>
+        <li><code>POST /job-preferences</code> - Save job preferences</li>
+        <li><code>GET /recommended-jobs</code> - Fetch real job recommendations</li>
+        <li><code>POST /save-recommended-job</code> - Save recommended job</li>
+        <li><code>GET /dashboard</code> - View analytics dashboard</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Development Process</h2>
+
+    <p class="about">
+      The project was first developed in a single
+      <code>main.py</code> file to quickly test the core APIs.
+      It was then refactored into a modular FastAPI structure
+      using separate files for routes, schemas, models,
+      authentication, database configuration,
+      and external job API logic.
+    </p>
+  </section>
+
+  <footer>
+    <p>Developed by Mihir Barve | Job Tracker API</p>
+  </footer>
+
+</body>
