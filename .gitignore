@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+job_tracker.db
+.env
+.idea/
