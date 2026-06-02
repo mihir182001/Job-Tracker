@@ -8,6 +8,8 @@ from database import get_db
 
 from external_jobs import fetch_arbeitnow_jobs
 
+from logger_config import logger
+
 
 from models import (
     User,
@@ -102,6 +104,10 @@ def register_user(
 
     db.refresh(new_user)
 
+    logger.info(
+        f"User registered successfully: {new_user.email}"
+    )
+
     add_audit_log(
         db,
         new_user.id,
@@ -150,6 +156,10 @@ def login_user(
         request
     )
 
+    logger.info(
+        f"User logged in successfully: {user.email}"
+    )
+
     return LoginResponse(
         email=user.email,
         access_token=token
@@ -175,6 +185,10 @@ def create_company(
     db.commit()
 
     db.refresh(company)
+
+    logger.info(
+        f"Company created: {company.name} by {current_user.email}"
+    )
 
     add_audit_log(
         db,
@@ -242,6 +256,10 @@ def create_job(
     db.commit()
 
     db.refresh(job)
+
+    logger.info(
+        f"Job created: {job.job_title} by {current_user.email}"
+    )
 
     add_audit_log(
         db,
@@ -412,6 +430,10 @@ def create_interview(
 
     db.refresh(interview)
 
+    logger.info(
+        f"Interview scheduled for job {interview.job_id}"
+    )
+
     add_audit_log(
         db,
         current_user.id,
@@ -464,6 +486,10 @@ def create_job_preference(
     db.add(preference)
     db.commit()
     db.refresh(preference)
+
+    logger.info(
+        f"Job preference created by {current_user.email}"
+    )
 
     add_audit_log(
         db,
@@ -580,6 +606,10 @@ def save_recommended_job(
     db.add(job)
     db.commit()
     db.refresh(job)
+
+    logger.info(
+        f"Recommended job saved: {job.job_title}"
+    )
 
     add_audit_log(
         db,

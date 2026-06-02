@@ -1,3 +1,7 @@
+from fastapi import Request, HTTPException
+from fastapi.responses import JSONResponse
+from pydantic import ValidationError
+from logger_config import logger
 from fastapi import FastAPI
 import os
 
@@ -23,6 +27,42 @@ app = FastAPI(
     description="Professional Job Tracking Backend",
     version="1.0.0"
 )
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(
+    request: Request,
+    exc: HTTPException
+):
+    logger.warning(
+        f"HTTP error: {exc.status_code} | Path: {request.url.path} | Detail: {exc.detail}"
+    )
+
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "success": False,
+            "message": exc.detail
+        }
+    )
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(
+    request: Request,
+    exc: Exception
+):
+    logger.error(
+        f"Unexpected error at {request.url.path}: {str(exc)}",
+        exc_info=True
+    )
+
+    return JSONResponse(
+        status_code=500,
+        content={
+            "success": False,
+            "message": "Internal server error. Please try again later."
+        }
+    )
 
 @app.get("/")
 def home():
