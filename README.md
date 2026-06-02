@@ -30,6 +30,53 @@ The backend was developed using:
 - Swagger UI for API testing and documentation
 - External Job API Integration using Arbeitnow API
 
+## Recent Enhancements
+
+Based on production-readiness improvements, the following features have been added:
+
+### Structured Logging
+
+* Implemented centralized application logging using Python logging.
+* Logs user authentication, company creation, job creation, interview scheduling, and job preference activities.
+* Improves monitoring and debugging capabilities.
+
+### Custom Exception Handling
+
+* Added global exception handlers for HTTP and application-level errors.
+* Returns clean and consistent JSON error responses.
+* Improves API reliability and maintainability.
+
+### Docker Support
+
+* Added Dockerfile for containerized deployment.
+* Added docker-compose.yml for simplified application setup.
+* Enables easier deployment across environments.
+
+### Automated API Testing
+
+Implemented automated API testing using Pytest and FastAPI TestClient.
+
+Current test coverage includes:
+
+* Home Endpoint
+* User Registration
+* User Login
+* Create Company
+* Get Companies
+* Create Job
+* Get Jobs
+
+
+
+Current Test Status:
+
+```text
+7 passed
+```
+
+
+
+
 The application was tested using FastAPI Swagger documentation available at:
 
 ```text
