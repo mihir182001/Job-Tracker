@@ -6,7 +6,7 @@ pydantic[email]
 passlib[bcrypt]
 python-jose==3.5.0
 python-multipart==0.0.29
-bcrypt==5.0.0
+bcrypt==4.0.1
 email-validator
 python-dotenv==1.2.2
 requests==2.34.2
