@@ -68,14 +68,32 @@ Current test coverage includes:
 
 
 
-Current Test Status:
+### Current Test Status:
 
 ```text
 7 passed
 ```
 
+### Cloud Deployment
 
+The application has been deployed on the Render cloud platform using Docker containerization.
 
+### Live API Documentation
+```text
+https://job-tracker-hrfz.onrender.com/docs
+```
+
+The deployed API provides publicly accessible Swagger documentation for testing and exploring all endpoints.
+
+### CI/CD Pipeline
+A continuous integration pipeline has been implemented using GitHub Actions.
+
+### Workflow Features
+* Automatically triggers on every push to the main branch
+* Automatically triggers on pull requests
+* Installs project dependencies in a clean environment
+* Executes automated test suites using Pytest
+* Verifies application stability before deployment
 
 The application was tested using FastAPI Swagger documentation available at:
 
