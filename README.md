@@ -95,6 +95,19 @@ A continuous integration pipeline has been implemented using GitHub Actions.
 * Executes automated test suites using Pytest
 * Verifies application stability before deployment
 
+## Performance Monitoring
+
+Implemented request-time monitoring middleware to track API performance.
+
+Sample local response times:
+
+| Endpoint | Response Time |
+|-----------|-------------|
+| POST /login | 2.53 sec |
+| POST /companies | 0.53 sec |
+| GET /companies | 0.08 sec |
+
+
 The application was tested using FastAPI Swagger documentation available at:
 
 ```text
