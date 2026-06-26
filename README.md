@@ -111,4 +111,6 @@ Sample local response times:
 The application was tested using FastAPI Swagger documentation available at:
 
 ```text
-http://127.0.0.1:8000/docs
+Live API Documentation: https://job-tracker-hrfz.onrender.com/docs
+
+Live Application: https://job-tracker-hrfz.onrender.com
